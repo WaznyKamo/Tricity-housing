@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr  7 12:37:53 2024
+Created on Fri Apr 12 17:37:31 2024
 
 @author: Kamil
 """
@@ -11,10 +11,10 @@ import pandas as pd
 # import re
 
 
-file_path = r"C:\Users\Kamil\OneDrive\Inżynieria danych i Data Science\Tricity-housing\data\flat-sell.csv"
+file_path = r"C:\Users\Kamil\OneDrive\Inżynieria danych i Data Science\Tricity-housing\data\flat-rent.csv"
 
 # included filter in link in order to get only offers with known prices
-url_site = "https://www.morizon.pl/mieszkania/gdansk/?ps%5Blocation%5D%5Bmap%5D=1&ps%5Blocation%5D%5Bmap_bounds%5D=54.4472188%2C18.9512795%3A54.2749559%2C18.4287748&ps%5Bwith_price%5D=1&page="
+url_site = "https://www.morizon.pl/do-wynajecia/mieszkania/gdansk/?ps%5Blocation%5D%5Bmap%5D=1&ps%5Blocation%5D%5Bmap_bounds%5D=54.4472188%2C18.9512795%3A54.2749559%2C18.4287748&ps%5Bwith_price%5D=1&page="
 flats = pd.DataFrame()
 
 def get_flat_info(flat_url):
@@ -66,6 +66,7 @@ for i in range(1, pages+1):
         link = flat.find('a').get("href")
         # name = flat.find('span', attrs={"class": "_9Y9BTQ"}).text
         link = "https://www.morizon.pl" + link
+        # print(link)
         flat_info = get_flat_info(link)
         flats = pd.concat([flats, flat_info]) 
     print(i)
