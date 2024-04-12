@@ -11,10 +11,10 @@ import pandas as pd
 # import re
 
 
-file_path = r"C:\Users\Kamil\OneDrive\Inżynieria danych i Data Science\Tricity-housing\data\flat-sell.csv"
+file_path = r"C:\Users\Kamil\OneDrive\Inżynieria danych i Data Science\Tricity-housing\data\flat-sell_Gdynia.csv"
 
 # included filter in link in order to get only offers with known prices
-url_site = "https://www.morizon.pl/mieszkania/gdansk/?ps%5Blocation%5D%5Bmap%5D=1&ps%5Blocation%5D%5Bmap_bounds%5D=54.4472188%2C18.9512795%3A54.2749559%2C18.4287748&ps%5Bwith_price%5D=1&page="
+url_site = "https://www.morizon.pl/mieszkania/gdynia/?ps%5Blocation%5D%5Bmap%5D=1&ps%5Bwith_price%5D=1&page="
 flats = pd.DataFrame()
 
 def get_flat_info(flat_url):
@@ -51,7 +51,7 @@ def get_flat_info(flat_url):
 data = pd.DataFrame()
 response = requests.get(url_site + '1')
 soup = BeautifulSoup(response.text, features='html.parser')
-    
+     
 pages = int(soup.find_all("div", attrs={"class": "I03LY0"})[-2].text)
     
 
