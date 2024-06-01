@@ -8,7 +8,7 @@ Created on Mon May 20 19:51:25 2024
 import pandas as pd
 
 
-data = pd.read_csv("data_cleaned.csv")
+data = pd.read_csv("data_cleaned_for_real.csv")
 
 sell_data = data[data['Sprzedaż'] == 1]
 
